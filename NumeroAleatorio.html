@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const numeroAleatorio = Math.floor(Math.random() * 1000) + 1;
+        //alert(numeroAleatorio);
+        let resposta;
+        const limiteTentativas = 5;
+        let tentativas = 0;
+
+        do {
+            tentativas++;
+
+            if (tentativas > limiteTentativas) {
+                alert("Esgotou as tentativas!!!");
+                break
+            }
+
+            resposta = +prompt("Digitar um número:", "")
+            if (resposta < numeroAleatorio) {
+                alert("O número é maior!!");
+            }
+            else if (resposta > numeroAleatorio) {
+                alert("O número é menor!!");
+            }
+            else {
+                alert("Acertou!!");
+            }
+
+        } while (resposta != numeroAleatorio)
+
+        console.log(numeroAleatorio);
+
+    </script>
+</body>
+
+</html>
