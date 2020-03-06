@@ -1,0 +1,114 @@
+				JAVASCRIPT - INTRODUÇÃO
+
+Ex 1:
+	alert("Olá JavaScript!");
+
+Ex 2: 
+  a)
+	i.   let admin, name;
+	ii.  name = "John";
+	iii. admin = name;
+	iv.  alert(admin);
+  b)
+	i.  let nossoPlaneta = "Terra";
+	ii. let utilizador = "Maria";
+
+Ex 3:
+  b) 
+	const BIRTHDAY = '18.04.1982'
+
+Ex 4:
+  a)
+	let name = "Ilya";
+	alert(`hello ${1}`); // hello 1
+	alert(`hello ${"name"}`); // hello name
+	alert(`hello ${name}`); // hello Ilya
+
+Ex 5:
+  a)
+	"" + 1 + 0 => 1
+	"" - 1 + 0 => -1
+	true + false => 1
+	6 / "3" => 2
+	"2" * "3" => 6
+	4 + 5 + "px" => 9px
+	"$" + 4 + 5 => $45
+	"4" - 2 => 2
+	"4px" - 2 => Nan
+	7 / 0 => Infinity
+	"-9 " + 5 => -95
+	"-9 " - 5 => -14
+	null + 1 => 1
+	undefined + 1 => NaN
+
+Ex 6:
+  a)
+	let a = 1, b = 1;
+	
+	let c = ++a; // 2 (retorna o novo valor)
+	let d = b++; // 1 (retorna o valor antigo, antes do incremento)
+
+	a = 2 /  b = 2 /  c = 2 /  d = 1
+
+  b)
+	let a = 2;
+	let x = 1 + (a *= 2); // a = a * 2
+	
+	a = 4 / x = 5
+
+
+Ex 7:
+  a)
+	let nome = prompt("Qual o seu nome?", "");
+	alert (`*${name}*`);
+
+Ex 8: 
+  a)
+	5 > 4 => true
+	"apple" > "pineapple" => false
+	"2" > "12" => true
+	undefined == null => true
+	undefined === null => false
+	null == "\n0\n" => false
+	null === +"\n0\n" => false
+
+Ex 9:
+  a)
+	Sim, será mostrado.
+
+  b)
+	const official = prompt('What is the "official" name of Javascript?', "");
+
+	if (official == 'ECMAScript'){
+  		alert('Right!');
+	}
+	else{
+  		alert("You don't know? ECMAScript!");
+	}
+
+  c)
+
+
+  d)
+	const num = +prompt("Qual o número?")
+
+Ex 11:
+  d)
+	for (let i = 2; i <= 10; i+=2){   //FORMA SIMPLIFICADA
+  		console.log(i)
+	}
+
+	OU:
+	
+	for (let i = 2; i <= 10; i++){
+		if(i % 2 == 0){
+			alert(i);
+		}
+	}
+
+  g)
+	
+
+
+
+
