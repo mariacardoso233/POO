@@ -135,17 +135,43 @@ Ex 10:
 	o primeiro e o terceiro
 
   e)
-	
+	let utilizador = prompt("Who is there?", '');
+
+	if (utilizador == 'Admin'){
+		let passe = prompt('Password?:', '');
+
+		if(passe == "TheMaster"){
+			alert("Welcome");
+		}
+		else if (passe == null || passe == ''){
+			alert("Canceled")
+		}
+		else{
+			alert("Wrong password");
+		}	
+	}
+	else if (utilizador == null || utilizador == ''){
+		alert("Canceled")
+	}
+	else{
+		alert("I don't know you");
+	}
 
 Ex 11:
 
-  a)
-
+  a)	
+	o último valor alertado é 1.
 
   b)
+	i)	resultado: 1 2 3 4
+
+	ii)	resultado: 1 2 3 4 5
 
 
   c)
+	i)	irá mostrar 4 casos.
+
+	ii)	irá mostrar 4 casos.
 
 
   d)
@@ -161,8 +187,76 @@ Ex 11:
 		}
 	}
 
-  g)
+  e)
+	let i = 0;
+	while (i < 3) {
+		alert( `number ${i}!` );
+		i++;
+	}
+
+  f)
+	let num;
 	
+	do {
+		num = prompt ( "Enter a number greater than 100?" , 0 );
+	} while ( num <= 100 && num );
+
+  g)
+	let n = 10 ;
+	nextPrime :
+	for ( let i = 2 ; i <= n ; i ++ ) {
+		for ( let j = 2 ; j < i ; j ++ ) {
+			if ( i % j == 0 ) continue nextPrime ;
+		}
+		alert ( i ); // a prime
+	}
+
+Ex 12:
+
+  a)
+	if ( browser == 'Edge' ) {
+		alert ( "You've got the Edge!" );
+	} 
+	else if ( browser == 'Chrome' || browser == 'Firefox' || browser == 'Safari'|| browser == 'Opera' ) {
+		alert ( 'Okay we support these browsers too' );
+	}
+	else {
+		alert ( 'We hope that this page looks ok!' );
+	}
+
+  b)
+	let a = +prompt('a?', '');
+
+	switch (a){
+		case 0:
+		  alert(0);
+		break;
+
+		case 1:
+		  alert(1);
+		break;
+
+		case 2:
+		case 3:
+		  alert('2,3');
+		break;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
