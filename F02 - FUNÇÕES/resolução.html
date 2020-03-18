@@ -92,10 +92,182 @@
                     }
                 }
             
-            e) */
-
+            e)
+                simularEco('ESMAD', 3);
+                function simularEco(s,n) {
+                    let resultado = "";
+                    for (let i = 0; i<n; i++){
+                        resultado += s;
+                    }
+                    alert(resultado);
+                }
             
+            f) 
+                const a = +prompt("Insira um número (1):");
+                const b = +prompt("Insira um número (2):");
 
+                mostrarIntervalo(a,b);
+
+                function mostrarIntervalo(a,b){
+                    let resultado = "";
+                    for (let i = a; i < b; i++){
+                        resultado += i + " , ";
+                    }
+                    alert(resultado);
+                }
+            
+            g) 
+                const a = +prompt("Insira um número (1):");
+                const b = +prompt("Insira um número (2):");
+
+                mostrarNumeros(a,b);
+
+                function mostrarNumeros(a,b){
+                    let resultado = "";
+                    for (let i = a; i < b; i++){
+                        if (i % 3 === 0){
+                            resultado += i;
+                        }
+                    }
+                    alert(resultado)
+                }
+            
+            h) 
+                const numero = +prompt('Insira um número para obter a sua tabuada');
+
+                mostrarTabuada(numero);
+
+                function mostrarTabuada(numero){
+                    let resultado = "";
+                    for (let i = 0; i < 11; i++){
+                        resultado += `${numero} X ${i} = ${numero*i}\n`;
+                    }
+                    alert(resultado);
+                }
+            
+            i) 
+                somarNums(4,8);
+                somarNums(4,8,5,14);
+
+                function somarNums(){
+                    let resultado = 0;
+                    for (let i = 0; i < arguments.length; i++){
+                        resultado += arguments[i];
+                    }
+                    alert(resultado);
+                }
+            
+            j)
+                mostrarAmigas("Maria", "Cardoso");
+                mostrarAmigas("Maria", "Cardoso", "Catarina");
+                mostrarAmigas("Maria", "Cardoso", "Rita", "Inês", "Lúcia");
+
+                function mostrarAmigas(primeiroNome, ultimoNome,...amigas){
+                    alert(`A ${primeiroNome} ${ultimoNome} tem ${amigas.length} amigas.`);
+                }
+            
+        Ex3:
+            a)
+                alert (min(2, 5));
+                alert (min(3,-1));
+                alert (min(1, 1));
+
+                function min(num1, num2){
+                    if (num1 < num2){
+                        return num1;
+                    }
+                    else{
+                        return num2;
+                    }
+                }
+            
+            b) 
+                alert(pow(3, 2));
+                alert(pow(3, 3));
+                alert(pow(4, 'x'));
+                alert(pow(1, 100));
+
+                function pow(base, expoente){
+                    if (isNan(+base) || base <=1){
+                        return "Base deve ser um número inteiro superior a 1";
+                    }
+                    else if (isNan(+expoente) || expoente <= 1){
+                        return "Expoente deve ser um número inteiro superior a 1";
+                    }
+                    else {
+                        return base ** expoente; 
+                    }
+                }
+            
+            c) 
+                const num = 11;
+                
+                if(checkPrime(num)) {
+                alert(`O número ${num} é primo!`)
+                } else {
+                alert(`O número ${num} não é primo!`)
+                }
+
+                function checkPrime(num) {
+                    let isPrime = true;
+                    for(let i = 2; i < num; i++) {
+                        if(num % i === 0) {
+                        isPrime = false;
+                        break;
+                        }
+                    }
+                return isPrime;
+                }
+            
+            d) 
+                alert(calcFatorial(0));
+                alert(calcFatorial(1));
+                alert(calcFatorial(5));
+                alert(calcFatorial(6));
+                            
+                function calcFatorial(num){
+                    let sum = 1;
+                    for(let i = 1; i <= num; i++){
+                        sum *= i;
+                    }
+                    return sum;
+                }
+            
+        Ex4:
+            a) 
+                let checkLeapYear = function(year){
+                    return ((year % 4 == 0) && (year % 100 != 0) || (year % 400 == 0))
+                }
+
+                alert(checkLeapYear(2014));
+                alert(checkLeapYear(2018));
+                alert(checkLeapYear(2020));
+            
+            b) 
+                let checkPerfect = function(number){
+                    let temp = 0;
+                    for(let i = 1; i <= number/2; i++){
+                        if(number % i === 0){
+                            temp += i;
+                        }
+                    }
+                    if (temp === number && temp !== 0){
+                        return true;
+                    }
+                    else{
+                        return false;
+                    }
+                }
+                let result; 
+                do{
+                    const number = +prompt('Insira um número');
+                    result = checkPerfect(number);
+                    
+                }while(!result);
+            */
+            
+            
+            
 
 
 
