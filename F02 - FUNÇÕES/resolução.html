@@ -264,12 +264,62 @@
                     result = checkPerfect(number);
                     
                 }while(!result);
-            */
-            
-            
-            
+        
+        Ex5: if (tentativas > limiteTentativas) {
+                alert("Esgotou as tentativas!!!");
+                break
+            }
 
+            resposta = +prompt("Digitar um número:", "")
+            if (resposta < numeroAleatorio) {
+                alert("O número é maior!!");
+            }
+            else if (resposta > numeroAleatorio) {
+                alert("O número é menor!!");
+            }
+            else {
+                alert("Acertou!!");
+            }
+        
+        const numeroAleatorio = Math.floor(Math.random() * 100) + 1;
+        //alert(numeroAleatorio);
+        let resultado;
+        const limiteTentativas = 5;
+        let tentativas = 0;
 
+            do{
+                tentativas ++;
+                const palpite = +prompt("Digite um número");
+                resultado = checkNumero(numeroAleatorio, palpite);
+                if(resultado === 0){
+                    break;
+                }
+                else if(resultado > 0){
+                    alert("PARA BAIXO!!");
+                }
+                else{
+                    alert("PARA CIMA!!");
+                }
+            }while(tentativas <>> limiteTentativas)
+
+            if (resultado === 0){
+                alert("ADIVINHOU, PARABÉNS!");
+            }
+            else{
+                alert("PACIÊNCIA, JOGUE OUTRA VEZ"); 
+            }
+            
+            function checkNumero(numeroAleatorio, palpite){
+                if (numeroAleatorio === palpite){
+                    return 0;
+                }
+                else if (numeroAleatorio > palpite){
+                    return -1;
+                }
+                else{
+                    return 1;
+                }
+            }*/
 
     </script>
 </body>
