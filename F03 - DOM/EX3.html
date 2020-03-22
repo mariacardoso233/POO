@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX03</title>
+</head>
+
+<body>
+    <script>
+        /*              EX3: Criar/substituir/remover elementos
+
+        a) Crie uma tabela de raíz através dos métodos de criação de nodos com o seguinte conteúdo:
+        
+        const tabela = document.createElement("table")
+        const tr1 = document.createElement("tr")
+        const tr2 = document.createElement("tr")
+        const th1 = document.createElement("th")
+        const th2 = document.createElement("th")
+        const td1 = document.createElement("td")
+        const td2 = document.createElement("td")
+
+        const texto1 = document.createTextNode("escola")
+        const texto2 = document.createTextNode("local")
+        const texto3 = document.createTextNode("ESMAD")
+        const texto4 = document.createTextNode("Vila do Conde")
+        
+        th1.appendChild(texto1)
+        th2.appendChild(texto2)
+        td1.appendChild(texto3)
+        td2.appendChild(texto4)
+
+        tr1.appendChild(th1)
+        tr1.appendChild(th2)
+        tr2.appendChild(td1)
+        tr2.appendChild(td2)
+
+        tabela.appendChild(tr1)
+        tabela.appendChild(tr2)
+
+        document.body.appendChild(tabela)
+        
+    //b) Crie de novo a tabela usando template strings e a propriedade innerHTML
+    document.body.innerHTML +=  `<table>
+            <tr>
+                <th>Escola</th>
+                <th>Local</th>
+            </tr>
+            <tr>
+                <td>ESMAD</td>
+                <td>Vila do Conde</td>
+            </tr>
+          </table>
+        `
+    
+    //c) Adicione uma nova linha com o conteúdo: ISEP Porto 
+
+        const novaLinha = document.querySelector("table")
+        const outraEscola = "ISEP"
+        const outroLocal = "Porto"
+        
+        novaLinha.innerHTML += `<tr><td>${outraEscola}</td><td>${outroLocal}</td></tr>`
+    
+    d) Altere o local da ESMAD para o conteúdo: Vila do Conde/Póvoa de Varzim
+    
+        const novoLocal = document.querySelector("td:last-of-type")
+        novoLocal.innerHTML = "Vila do Conde/Póvoa de Varzim"
+    
+    e) Remova o cabeçalho da tabela 
+    
+        const tabelaBody = document.querySelector("tbody")
+        const tr = document.querySelector("tr")  
+        tabelaBody.removeChild(tr)
+    
+    */
+
+    </script>
+</body>
+
+</html>
