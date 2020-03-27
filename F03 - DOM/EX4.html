@@ -6,6 +6,39 @@
     <title>EX04</title>
 </head>
 <body>
-    <input type="button" value="clica-me">
+        <!---              EX3: Criar/substituir/remover elementos -->
+
+    <!--  EX04:
+    A)
+        i) Através de um atributo HTML
+
+            <input type="button" value="Clica-me" onclick="alert('Olá Mundo!')"></input>
+
+        ii) Através de uma propriedade DOM 
+
+            <input type="button" value="Clica-me">
+
+            <script>
+                input.onclick = function(){
+                    alert("Olá Mundo!");
+                }
+            </script> 
+
+        iii) Através da adição de um ouvinte (listener)
+
+            <button id="btt" type="button">Click Me!</button>
+            <script>
+                document.getElementById("btt").addEventListener("click", function(){
+                    alert("Olá Mundo!");
+                })
+            </script>
+-->
+
+        <input type="text">
+        <p id="meuP"></p>
+        <input type="button" value="Clica-me"></input>
+        <script src="EX4.js"></script>
+
+
 </body>
 </html>
