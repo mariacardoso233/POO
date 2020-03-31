@@ -3,20 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EX05</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ex05</title>
 </head>
 <body>
-    <form action="EX5.html">
-        <label for="txtNameGame">Nome: </label>
-        <input name="txtNameGame" id="txtNameGame" type="text" required>
+
+    <form>
+        <label for="txtGameName">Nome do jogo:</label>
+        <input name="txtGameName" id="txtGameName" type="text" required>
         <br><br>
 
-        <label for="txtGameYear">Ano: </label>
+        <label for="txtGameYear">Ano do jogo</label>
         <input name="txtGameYear" id="txtGameYear" type="text" required>
         <br><br>
+        
+        <label for="txtGameGenre">Género do jogo</label>
+        <select name="txtGameGenre" id="txtGameGenre">
+            <option value="acao">Ação</option>
+            <option value="aventura">Aventura</option>
+            <option value="desporto">Desporto</option>
+            <option value="estrategia">Estratégia</option>
+            <option value="simulacao">Simulação</option>
+        </select>
+        <br><br>
+        
+        <label for="urlGameCover">Capa do jogo</label>
+        <input id="urlGameCover" type="urlGameCover" required>
+        <br><br>
 
-        <select></select>
-    
+        <input type="submit" value="Adicionar">
+        <input type="reset" value="Limpar">
+        <br><br><br>
     </form>
+
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Ano</th>
+            <th>Género</th>
+            <th>Capa</th>
+            <th>Opções</th>
+        </tr>
+    </table>
+
+
+    <script src="/EX5.js"></script>
+    
 </body>
 </html>
