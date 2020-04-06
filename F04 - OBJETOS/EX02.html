@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX02</title>
+</head>
+
+<body>
+    <script>
+        //  a. Considere o próximo objeto literal:
+        const student = {
+            name: "David Silva",
+            course: "POO",
+            grade: 12
+        }
+        listObjectsNames()
+        removePropGrade()
+        calcObjectSize()
+
+        //b) Crie uma função para listar os nomes das propriedades do objeto
+        
+        function listObjectsNames(){
+            for(let key in student){
+                console.log(key)
+            }
+        }
+
+        //c) Crie uma função que remova a propriedade grade do objeto.
+        //Imprima o objeto antes e depois de remover a propriedade
+        
+        function removePropGrade(){
+            delete student.grade
+        }
+
+        //d) Crie uma função que calcule o tamanho do objeto
+        
+        function calcObjectSize(){
+            let count = 0;
+            for (const key in student){
+                count ++;
+            }
+            console.log(count);
+        }
+
+
+    </script>
+</body>
+
+</html>
