@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EX03</title>
+</head>
+
+<body>
+    <script>
+        const grades = [
+            {
+                name: 'Rui',
+                grade: 8
+            },
+            {
+                name: 'Ana',
+                grade: 12
+            },
+            {
+                name: 'Carla',
+                grade: 14
+            }]
+
+        addNewObject();
+        calcGrades();
+
+
+        //b) Crie função que crie um novo objeto (com dados do utilizador)
+        //e insira os mesmos no array
+
+        /*function addNewObject() {
+            const name = prompt('Insira o seu nome:');
+            const grade = +prompt('Nota:');
+
+            const newObj = {
+                name: name,
+                grade: grade
+            }
+            grades[grades.length] = newObj
+            console.table(grades)
+        }*/
+
+        //c) Crie uma função que calcule a média das notas a POO
+
+        function calcGrades(){
+            let sum = 0;
+            for (const obj of grades){
+                sum += obj.grade
+            }
+            console.log(sum / grades.length);
+        }
+
+
+    </script>
+</body>
+
+</html>
