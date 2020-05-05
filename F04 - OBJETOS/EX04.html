@@ -12,13 +12,19 @@
         //a) Escreva a função isEmpty(obj) que retorna true se o objeto não tiver propriedades,
         //false caso contrário. Deve funcionar assim:
 
-        let schedule = {};
-        alert(isEmpty(schedule)); // true
-        schedule["8:30"] = "get up";
-        alert(isEmpty(schedule)); // false
+        /*
+            let schedule = {};
+            alert(isEmpty(schedule)); // true
+            schedule["8:30"] = "get up";
+            alert(isEmpty(schedule)); // false
+        */
 
         function isEmpty(obj){
+            for (const key in obj){
+                return false
+            }
 
+            return true
         }
         
     </script>
