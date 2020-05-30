@@ -1,4 +1,4 @@
-import BandModel from '../models/BandModel'
+import BandModel from '../models/BandModel.js'
 
 export default class BandController {
     constructor() {

@@ -1,5 +1,5 @@
-import UserView from './views/UserView.js'
-import CatalogView from './views/CatalogView.js'
+import UserView from '../js/views/UserView.js'
+import CatalogView from '../views/CatalogView.js'
 
 class App {
     constructor() {
