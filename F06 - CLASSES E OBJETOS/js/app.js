@@ -1,4 +1,4 @@
-import UserView from ".../views/UserView.js";
+import UserView from '../views/UserView.js';
 
 class App {
     constructor() {
