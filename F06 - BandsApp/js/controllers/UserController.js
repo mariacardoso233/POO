@@ -19,7 +19,7 @@ export default class UserController {
             return true;
         } else {
             throw Error('Invalid login!');
-        }    
+        }
     }
 
     logoutUser() {
