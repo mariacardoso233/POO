@@ -1,4 +1,5 @@
 import BandController from '../controllers/BandController.js'
+import UserController from '../controllers/UserController.js'
 
 export default class BandView {
     constructor() {
@@ -12,13 +13,33 @@ export default class BandView {
         this.sltGenre = document.guerySelector("sltGenre")
 
         this.renderCatalog(this.bandController.getBands())
+        this.bindAddFilterEvent()
+        this.bindAddSortEvent()
+        this.bindAddRemoveEvent()
+    }
+
+    bindAddFilterEvent() {
+        this.btnFilter.addEventListener('click', () => {
+            this.renderCatalog(this.bandController.getBands(this.txtBand.value, this.sltGenre.value))
+        })
     }
 
     bindAddSortEvent() {
         this.btnSort.addEventListener('click', () => {
-            this.renderCatalog(this.bandController.getBands('', '', true))
+            this.renderCatalog(this.bandController.getBands(this.txtBand.value, this.sltGenre.value, true))
         })
     }
+
+    bindAddRemoveEvent() {
+        for (const btnRemove of document.getElementsByClassName("remove")) {
+            btnRemove.addEventListener('click', event => {
+                this.bandController.removeBand(event.target.id)
+                this.renderCatalog(this.bandController.getBands(this.txtBand.value, this.sltGenre.value))
+            })
+        }
+    }
+
+
 
 
 
@@ -36,6 +57,8 @@ export default class BandView {
             if (i % 3 === 0) { result += `</div>` }
         }
         this.catalog.innerHTML = result
+
+        this.bindAddRemoveEvent()
     }
 
 
@@ -49,7 +72,7 @@ export default class BandView {
                     <h4 class="card-title">${band.name}</h4>
                     <p class="card-text">${band.genre}</p>
                     <button id="${band.id}" class"btn btn-primary">See More</button>
-                    <button id="${band.name}" class"btn btn-danger">Remove</button>
+                    <button id="${band.name}" class"btn btn-danger remove">Remove</button>
                 </div>
             </div>
         </div>

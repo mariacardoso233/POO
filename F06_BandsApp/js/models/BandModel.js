@@ -10,14 +10,13 @@ export default class BandModel {
     }
 
     create(name, genre, photo, description, video) {
-        const user = {
+        const band = {
             id: this.bands.length > 0 ? this.bands[this.bands.length - 1].id + 1 : 1,
             name: name,
             genre: genre,
             photo: photo,
             description: description,
             video: video
-
         }
         this.bands.push(band);
         this._persist();
@@ -29,9 +28,14 @@ export default class BandModel {
     }
 
 
+    remove(name) {
+        this.bands = this.bands.filter(band => band.name != name)
+        this._persist()
+    }
+
 
     _persist() {
-        localStorage.setItem('users', JSON.stringify(this.users));
+        localStorage.setItem('bands', JSON.stringify(this.bands));
     }
 
     _compare(bandA, bandB) {
@@ -40,6 +44,5 @@ export default class BandModel {
         if (bandA.name > bandB.name)
             return 1;
         return 0;
-
     }
 }

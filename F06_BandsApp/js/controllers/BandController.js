@@ -5,15 +5,43 @@ export default class BandController {
         this.bandModel = new BandModel()
     }
 
-    getBands(filterName, filterGenre, isSorted) {
+    removeBand(name) {
+        this.bandModel.remove(name)
+    }
+
+    getBands(filterName = '', filterGenre = '', isSorted = false) {
 
         if (isSorted) {
             this.bandModel.sort()
         }
 
+        const bands = this.bandModel.getAll()
 
-        const band = this.bandModel.getAll()
-        return bands
+        if (filterName === '' && filterGenre === '') {
+            return bands
+        }
+
+        let filteredBands = []
+
+        for (const band of bands) {
+            let filterBandName = false,
+                filterBandGenre = false
+
+            if ((band.name.includes(filterName) && filterName != '') || filterName === '') {
+                filterBandName = true
+            }
+
+            if ((band.genre === filterGenre && filterGenre != '') || filterGenre === '') {
+                filterBandGenre = true
+            }
+
+            //alimentar filteredBands
+            if (filterBandName && filterBandGenre) {
+                filteredBands.push(band)
+            }
+        }
+
+        return filteredBands
     }
 
 }
