@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>EX05</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <label for="text">Nome: </label><input type="text" name="" id="txtName"><br>
+    <label for="text">Ano: </label><input type="number" name="" id="txtYear"><br>
+    <input type="button" value="ADICIONAR JOGO" id="btnAddGame">
+
+    <input type="button" value="REMOVER JOGO" id="btnRemoveGame">
+
+
+    <script>
+        //a. Criar o array games 
+        const games = [{
+            name: 'Rick Dangerous',
+            year: 1989
+        }, {
+            name: 'Goblins',
+            year: 1992
+        }, {
+            name: 'Golden Axe',
+            year: 1989
+        }]
+
+
+        //b. Exiba na consola informação sobre os jogos:  Nome: N / Ano: A  (...)
+        for (const game of games) {
+            console.log(`Nome: ${game.name} / Ano: ${game.year}`);
+        }
+
+
+        //c. Exiba na consola o nº de jogos existentes
+        console.log(games.length);
+
+
+        /*d. Crie função chamada addGame que crie um novo objeto (com dados do utilizador
+            provenientes de 2 caixas de texto e um botão “ADICIONAR JOGO”) e insira os
+            mesmos no array*/
+        /*e. Melhore a alínea anterior de forma a não deixar inserir um jogo já existente. Caso já
+            exista deve ser exibida uma caixa de alerta com o texto: “JOGO JÁ EXISTENTE!”*/
+        document.querySelector("#btnAddGame").addEventListener('click', function() {
+            const txtName = document.querySelector("#txtName").value
+            const txtYear = +document.querySelector("#txtYear").value
+
+            if (games.some(game => game.name === txtName)) {
+                alert('JOGO JÁ EXISTENTE!')
+            } else {
+                const newGame = {
+                    name: txtName,
+                    year: txtYear
+                }
+                games.push(newGame)
+                console.log(games);
+            }
+        });
+
+
+        /*f. Crie uma função chamada averageLaunchDate que calcule e devolva a média do ano
+            de lançamento dos jogos. Apresente o resultado numa caixa de alerta*/
+        function averageLaunchDate(games) {
+            let sumYears = games.reduce((sum, current) => sum + current.year, 0);
+            let averageYears = sumYears / games.length;
+
+            return averageYears;
+        }
+        alert(averageLaunchDate(games))
+
+
+
+        /*g. Crie um novo botão chamado “REMOVER JOGO” que ao ser premido deve remover o
+            jogo cujo nome foi inserido na caixa de texto. Se o jogo não existir deve ser
+            apresentada a numa caixa de alerta a mensagem: “JOGO INEXISTENTE”*/
+        document.querySelector("#btnRemoveGame").addEventListener("click", removeGame);
+
+        function removeGame() {
+            const txtName = document.querySelector("#txtName").value
+
+            if (games.some(game => game.name === txtName)) {
+                for (let i = 0; i < games.length; i++) {
+                    if (games[i].name === txtName) {
+                        delete games[i];
+                        console.log(`Removido jogo: ${txtName}`);
+                        break;
+                    }
+                }
+            } else {
+                alert('JOGO INEXISTENTE!')
+            }
+        };
+
+
+        /*h. Crie uma função chamada gamesFrom90 que retorne os nomes dos jogos lançados
+            na década de 90. Apresente o resultado numa caixa de alerta*/
+
+        function gamesFrom90(games) {
+            let gamesFrom90Array = [];
+            for (const game of games) {
+                if (game.year >= 1990 && game.year < 2000) {
+                    gamesFrom90Array.push(game.name);
+                }
+            }
+            return gamesFrom90Array;
+        }
+        alert(gamesFrom90(games));
+
+
+        /*i. Crie uma função chamada concatenateGameNames que devolva uma string com
+            todos os nomes dos jogos em minúsculas e sem espaços. Apresente o resultado
+            numa caixa de alerta*/
+
+        function concatenateGameNames(games) {
+            const mapArray = games.map(x => x.name.toLowerCase().split(' ').join(''));
+            return mapArray;
+        }
+        alert(concatenateGameNames(games));
+    </script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

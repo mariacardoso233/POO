@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Ex01</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <script>
+        //a. Crie um array countries com o nome dos países Portugal, Espanha e França
+        let countries = ["Portugal", "Espanha", "França"]
+
+        //b. Imprima numa caixa de alerta o primeiro elemento
+        //alert(countries[0])
+
+        //c. Imprima numa caixa de alerta o último elemento
+        //alert(countries[2])
+        //alert(countries[countries.length - 1])
+
+
+        //d. Adicione um novo elemento: Alemaha
+        countries.push("Alemaha")
+            //countries[countries.length] = "Alemaha"
+            //alert(countries);
+
+        //e. Altere o elemento Alemaha para Alemanha
+        //countries[3] = "Alemanha"
+        countries[countries.length] = "Alemanha"
+
+        /*f. Imprima numa caixa de alerta a seguinte mensagem:
+            O array tem X países!*/
+        let compArray = countries.length
+        alert(`O array tem ${compArray} países!`)
+
+        //g. Crie outro array chamado countries2
+        let countries2
+
+        //h. Iguale o array criado ao array countries
+        countries2 = countries
+
+        //i. Adicione um novo elemento (“Dinamarca”) ao array countries2
+        countries2.push("Dinamarca")
+
+        //j. Imprima numa caixa de alerta o array countries . Analise o resultados.
+        alert(countries)
+
+        /*k. Itere (usando um ciclo for ) sobre todos os elementos do array apresentando os
+            nomes dos países na consola´da seguinte forma:*/
+        for (let i = 0; i < countries.length; i++) {
+            console.log(`${i + 1} - ${countries[i]}\n`);
+        }
+
+        /*l. Resolva o exercício anterior usando o ciclo for..of*/
+        let pos = 1
+        for (const country of countries) {
+            console.log(`${pos} - ${country}\n`);
+            pos++
+        }
+    </script>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>

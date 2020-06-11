@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Ex02</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <input type="text" id="txtName">
+    <input type="button" id="btnAdd" value="ADICIONAR NOME">
+    <script>
+        //a. Crie um array names vazio
+        const names = [];
+
+        /* b. Inclua na página Web uma caixa de texto e um botão “ADICIONAR NOME”. Ao
+            pressionar o botão, deve adicionar no array o conteúdo da caixa de texto e imprimir
+            na consola o conteúdo do array */
+        document.querySelector('#btnAdd').addEventListener('click', function() {
+            const txtName = document.querySelector('#txtName');
+            names.push(txtName.value);
+            console.log(names);
+        });
+
+        //c. Adicione 5 nomes (“Rui”, “Pedro”, “Rita”, “Joana”, “Manuel”)
+        //const names = ["Rui", "Pedro", "Rita", "Joana", "Manuel"]
+
+        //d. Extraia o último nome do array e exiba-o numa caixa de alerta
+        alert(names.pop())
+
+        //e. Extraia o primeiro nome do array e exiba-o numa caixa de alerta
+        alert(names.shift())
+
+        //f. Crie um segundo array chamado names2 com os elementos: “Ricardo”, “Maria”
+        const names2 = ["Ricardo", "Maria"]
+
+        //g. Junte ambos os arrays num novo array chamado allNames e mostre-o na consola
+        const allNames = names.concat(names2)
+        console.log(allNames);
+
+        //h. Resolva a questão anterior usando sintaxe de propagação (spread)
+        //const allNames = [...names, ...names2]
+        //console.log(allNames);
+
+        //i. Melhore a alínea b) de forma a não inserir nomes repetidos
+        document.querySelector('#btnAdd').addEventListener('click', function() {
+            const txtName = document.querySelector('#txtName');
+            if (txtName.includes(name)) {
+                alert("O nome inserido já existe!")
+            } else {
+                names.push(txtName.value);
+                console.log(names);
+            }
+        });
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
