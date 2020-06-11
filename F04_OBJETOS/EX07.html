@@ -2,66 +2,64 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EX07</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ex07</title>
 </head>
 
 <body>
-    <form id="frmFilms">
-        <label for="txtFilmName">Título do filme: </label>
-        <input id="txtFilmName" type="text" required>
-        <br><br>
+    <h1>VIDEOTECA</h1>
 
-        <label for="sltGenre">Género</label>
+    <!-- Formulário para adição de filme -->
+    <form>
+        <label for="txtTitle">TITULO:</label>
+        <input id="txtTitle" type="text" required /><br />
+
+        <label for="sltGenre">GÉNERO:</label>
         <select id="sltGenre">
-            <option id="adventure">Aventura</option>
-            <option id="action">Ação</option>
-            <option id="comedy">Comédia</option>
-            <option id="horror">Terror</option>
-            <option id="romance">Romance</option>
-            <option id="thriller">Thriller</option>
-            <option id="other">Outro</option>
+            <option value="aventura">AVENTURA</option>
+            <option value="acao">AÇÃO</option>
+            <option value="comedia">COMÉDIA</option>
+            <option value="terror">TERROR</option>
+            <option value="romance">ROMANCE</option>
+            <option value="thriller">THRILLER</option>
+            <option value="outro">OUTRO</option>
         </select>
-        <br><br>
+        <br>
 
-        <label for="txtYear">Ano: </label>
-        <input id="txtYear" type="number" min="1900" max="" required>
-        <br><br>
-
-        <label for="txtLinkCover">Capa: </label>
-        <input id="txtLinkCover" type="url"
-            value="https://66.media.tumblr.com/9c9a223e0ecfb79a94ba40b2757bbfc9/tumblr_pdffhfdp5W1udrtcvo4_250.png"
-            required>
-        <br><br>
-
-        <label for="txtLinkTrailer">Trailer: </label>
-        <input id="txtLinkTrailer" type="url" value="https://youtu.be/KWYhF0lR2cg" required>
-        <br><br>
-
-        <input for="submit" id="btnSubmit" type="button" value="Submeter" required>
-        <input for="reset" id="btnReset" type="button" value="Repor" required>
-
+        <label for="txtYear">ANO:</label>
+        <input id="txtYear" type="number" min="1900" max="" required />
+        <br>
+        <label for="txtCover">CAPA:</label>
+        <input id="txtCover" ype="url" value="https://i.pinimg.com/originals/66/25/b4/6625b41f5b0f64766b161ddfa0fe0db7.jpg" required />
+        <br>
+        <label for="txtTrailer">TRAILER:</label>
+        <input id="txtTrailer" type="url" value="https://www.youtube.com/embed/tgbNymZ7vqY" />
+        <br /><br />
+        <input type="submit" value="ADICIONAR" />
+        <input type="reset" value="REPOR" />
     </form>
     <hr>
-    <table> </table>
 
-    <!--Janela modal para mostrar a capa-->
+    <!-- Tabela para listagem dos filmes -->
+    <table></table>
+
+    <!-- Janela modal para mostrar a capa -->
     <dialog id="dlgCover">
-        <img id="imgCover" src="" alt="">
+        <img id="imgCover" src="" alt="" />
         <br>
         <button id="btnCloseCoverDialog">FECHAR</button>
     </dialog>
 
     <!--Janela modal para mostrar trailer-->
-
     <dialog id="dlgTrailer">
-        <iframe id="ifrTrailer" width="640" height="360" allow="autoplay"></iframe>
+        <iframe id="ifrTrailer" width="640" height="360" src=""></iframe>
         <br>
         <button id="btnCloseTrailerDialog">FECHAR</button>
     </dialog>
 
-    <script src="EX07.js"></script>
+    <script src="ex07.js"></script>
 </body>
 
 </html>

@@ -10,22 +10,22 @@
 <body>
     <script>
         /*a) Crie uma função multiplyNumeric(obj) que multiplique todas as propriedades
-            numéricas de obj por 2. Por exemplo:
+                            numéricas de obj por 2. Por exemplo:
 
-        // antes da chamada da função
-                let menu = {
-                    width: 200,
-                    height: 300,
-                    title: "My menu"
-                };
-                multiplyNumeric(menu);
-                
-        // depois da chamada da função
-                menu = {
-                    width: 400,
-                    height: 600,
-                    title: "My menu"
-                };*/
+                        // antes da chamada da função
+                                let menu = {
+                                    width: 200,
+                                    height: 300,
+                                    title: "My menu"
+                                };
+                                multiplyNumeric(menu);
+                                
+                        // depois da chamada da função
+                                menu = {
+                                    width: 400,
+                                    height: 600,
+                                    title: "My menu"
+                                };*/
 
         const menu = {
             width: 200,
@@ -37,12 +37,12 @@
 
         function multiplyNumeric(menu) {
             for (const key in menu) {
-                if (typeof (menu[key]) == "number") {
+                if (typeof(menu[key]) == 'number') {
                     menu[key] = menu[key] * 2
                 }
             }
             console.table(menu)
-
+        }
     </script>
 </body>
 

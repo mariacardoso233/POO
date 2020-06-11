@@ -9,19 +9,16 @@
 
 <body>
     <script>
-        const grades = [
-            {
-                name: 'Rui',
-                grade: 8
-            },
-            {
-                name: 'Ana',
-                grade: 12
-            },
-            {
-                name: 'Carla',
-                grade: 14
-            }]
+        const grades = [{
+            name: 'Rui',
+            grade: 8
+        }, {
+            name: 'Ana',
+            grade: 12
+        }, {
+            name: 'Carla',
+            grade: 14
+        }]
 
         addNewObject();
         calcGrades();
@@ -29,43 +26,49 @@
 
 
         //b) Crie função que crie um novo objeto (com dados do utilizador)
-        //e insira os mesmos no array
+        //  e insira os mesmos no array
 
         function addNewObject() {
             const name = prompt('Insira o seu nome:');
             const grade = +prompt('Nota:');
 
             const newObj = {
-                name: name,
-                grade: grade
-            }
+                    name: name,
+                    grade: grade
+                }
+                // alternativa: const newObj = {name, grade}
+
+
             grades[grades.length] = newObj
+                //alternativa: grades.push(newObj)
+
             console.table(grades)
         }
 
+
         //c) Crie uma função que calcule a média das notas a POO
 
-        function calcGrades(){
+        function calcGrades() {
             let sum = 0;
-            for (const obj of grades){
+            for (const obj of grades) {
                 sum += obj.grade
             }
             console.log(sum / grades.length);
         }
 
+
         // d) Crie função que liste os nomes dos estudantes com nota positiva
 
-        function namesOfPositives(){
+        function namesOfPositives() {
             let names = '';
             for (const obj of grades) {
-                if (obj.grade >= 10){
+                if (obj.grade >= 10) {
                     names += obj.name + '\n';
                 }
             }
             console.log(names);
-            
-        }
 
+        }
     </script>
 </body>
 

@@ -1,8 +1,8 @@
-const fromGame = document.querySelector('form');
+const frmGame = document.querySelector('form');
 
 //Alinea C)
 
-fromGame.addEventListener("submit", function(event) {
+frmGame.addEventListener("submit", function(event) {
     const txtGameYear = document.querySelector("#txtGameYear").value;
 
     if (txtGameYear > 1950 && txtGameYear <= new Date().getFullYear()) {
@@ -27,9 +27,11 @@ fromGame.addEventListener("submit", function(event) {
 
         table.append(line);
 
-        buttonX = line.querySelector('input')[0];
+
+        //Alinea C)
+        buttonX = line.getElementsByTagName('input')[0];
         buttonX.addEventListener('click', function() {
-            this.parentNone.parentNone.remove();
+            this.parentNode.parentNode.remove();
         });
 
 
@@ -38,7 +40,7 @@ fromGame.addEventListener("submit", function(event) {
         alert("Erro!!");
     }
 
-    formGame.reset();
+    frmGame.reset();
     event.preventDefault();
 
 });
