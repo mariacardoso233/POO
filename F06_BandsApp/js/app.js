@@ -1,21 +1,100 @@
-import UserView from './js/views/UserView.js'
+import UserView from './views/UserView.js'
 import CatalogView from './views/CatalogView.js'
+import BandDetailView from './views/BandDetailView.js'
+import BandAddView from './views/BandAddView.js'
 
 class App {
     constructor() {
-        this.userView = new UserView();
-        this.catalogView = new CatalogView();
+        this.routes = {
+            '': [
+                UserView,
+                CatalogView
+            ],
+            'index': [
+                UserView,
+                CatalogView
+            ],
+            'band': [
+                BandDetailView
+            ],
+            'addBand': [
+                BandAddView
+            ]
+        };
 
-        //Apagar dps
+        // import dummy data for testing purposes
+        this._importDataFixtures();
+
+        // instantiate the views mapped in the routes object
+        this._instantiateViews();
+    }
+
+    _instantiateViews() {
+        const path = window.location.pathname
+        const file = path.substr(path.lastIndexOf('/') + 1);
+        const route = file.split('.')[0];
+
+        const views = this._getViews(route);
+
+        for (const view of views) {
+            new view();
+        }
+    }
+
+    _getViews(route) {
+        return typeof this.routes[route] === 'undefined' ? [] : this.routes[route];
+    }
+
+    _importDataFixtures() {
+        const bands = [
+            {
+                id: 1,
+                name: 'Muse',
+                genre: 'Pop-Rock',
+                photo: 'http://www.planckmachine.com/wp-content/uploads/2016/09/hysteria-muse-meaning-song.jpg',
+                description: 'The best band ever',
+                video: 'https://www.youtube.com/watch?v=AR6A3dap6MI'  
+            },
+            {
+                id: 2,
+                name: 'RadioHead',
+                genre: 'Pop-Rock',
+                photo: 'https://ep01.epimg.net/elpais/imagenes/2017/05/17/icon/1495017818_647155_1495125183_noticia_normal.jpg',
+                description: 'The best band ever',
+                video: 'https://www.youtube.com/watch?v=fHiGbolFFGw'
+            },
+            {
+                id: 3,
+                name: 'James',
+                genre: 'Pop-Rock',
+                photo: 'http://ksassets.timeincuk.net/wp/uploads/sites/55/2013/01/2012JamesBandPress181212-2.jpg',
+                description: 'The best band ever',
+                video: 'https://www.youtube.com/watch?v=BlucfrfxAUc'
+            },
+            {
+                id: 4,
+                name: 'Metallica',
+                genre: 'Metal',
+                photo: 'https://images.impresa.pt/blitz/2016-08-19-metallica.jpg/original/mw-860',
+                description: 'The best band ever',
+                video: 'https://www.youtube.com/watch?v=pZTJBViOoik' 
+            }
+        ];
+
+        const users = [
+            {
+                id: 1,
+                username: 'user',
+                password: 'user'
+            }
+        ];
+
+        // Load the fixtures in case there is no data in the local storage 
         if (!localStorage.bands) {
-            let bands = [];
-            const band1 = { id: 1, name: "iKON", genre: "K-pop, Hip-hop", photo: "https://media.stubhubstatic.com/stubhub-catalog/d_defaultLogo.jpg/t_f-fs-0fv,q_auto:low,f_auto,c_fill,dpr_2.0,$w_750,$h_416/performer/1494561/j0nmtteefboqvdcdu8gv" }
-            const band1 = { id: 2, name: "BTS", genre: "K-Pop, Hip-Hop, EDM, R&B", photo: "https://www.estrelando.com.br/uploads/2019/09/16/bts-ok-1568643218.jpg" }
-            const band1 = { id: 3, name: "GOT7", genre: "K-pop, J-pop, Hip-hop, Trap, R&B", photo: "https://kpopping.com/uploads/documents/LHJ_8486_.jpeg" }
-            const band1 = { id: 4, name: "NCT 127", genre: "K-pop, Hip-hop", photo: "https://3.bp.blogspot.com/-jcH5RB3b2UE/W71lu6TkgbI/AAAAAAAAGSA/MXw6sMokc6olKPkTK7FxbJF_u4C7OrCqACLcBGAs/s1600/IMG_20181010_093608.jpg" }
-            const band1 = { id: 5, name: "PLT", genre: "R&B, Hip-hop", photo: "https://thumbnail.kpopmap.com/2018/09/PLT-11-680x384.jpg" }
-            const band1 = { id: 6, name: "ATEEZ", genre: "K-pop, J-pop", photo: "https://conteudo.imguol.com.br/c/entretenimento/c0/2019/10/08/o-grupo-de-k-pop-ateez-1570536296196_v2_1220x775.jpg" }
-            const band1 = { id: 7, name: "Big Bang", genre: "K-pop, J-pop ,R&B, Hip-hop", photo: "https://www.midiorama.com/wp-content/uploads/2018/03/bigbang-920x625.jpg" }
+            localStorage.setItem('bands', JSON.stringify(bands));    
+        }
+        if (!localStorage.users) {
+            localStorage.setItem('users', JSON.stringify(users));
         }
     }
 }

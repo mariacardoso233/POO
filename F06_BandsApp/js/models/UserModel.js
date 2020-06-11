@@ -11,7 +11,7 @@ export default class UserModel {
         const user = {
             id: this.users.length > 0 ? this.users[this.users.length - 1].id + 1 : 1,
             username: username,
-            password: password
+            password: password            
         }
         this.users.push(user);
         this._persist();

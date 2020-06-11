@@ -5,16 +5,16 @@ export default class GradeModel {
     }
 
     getAll() {
-        return this.grades;
+        return this.grades
     }
 
-    create(ano, disciplina, nota) {
-        this.grades.push({ ano, disciplina, nota })
+    create(year, course, score) {
+        this.grades.push({ year, course, score })
         this._persist()
     }
 
-    remove(disciplina) {
-        this.grades = this.grades.filter(grade => grade.disciplina != disciplina)
+    remove(course) {
+        this.grades = this.grades.filter(grade => grade.course != course)
         this._persist()
     }
 

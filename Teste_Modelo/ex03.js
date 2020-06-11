@@ -4,7 +4,8 @@ class Company {
         this._departments = ['Informatics', 'Financial', 'Marketing']
     }
 
-    /*O método deve lançar erros para quem o invocou sempre que o departamento não exista 
+    /*Crie um métodos que permita contratar um novo empregado dado o seu nome, departamento que o contratou e salário hora. 
+    O método deve lançar erros para quem o invocou sempre que o departamento não exista 
     ou o nome do funcionário já exista na empresa.*/
     hireEmployee(name, department, salary) {
         if (this._employees.some(employee => employee.name === name)) {

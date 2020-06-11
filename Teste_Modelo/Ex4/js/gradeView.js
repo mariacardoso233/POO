@@ -1,11 +1,9 @@
 import GradeController from './gradeController.js'
 
 export default class GradeView {
-
     constructor() {
         this.gradeController = new GradeController()
 
-        //Catálogo
         this.frmAddGrade = document.querySelector('#frmAddGrade')
         this.txtGrade = document.querySelector('#txtGrade')
         this.pMessage = document.querySelector('#pMessage')
@@ -20,24 +18,35 @@ export default class GradeView {
         this.bindRemoveEvent()
     }
 
-    bindAddGradeForm() {
+    bindAddGradeForm() { //Submissão da informação escrita no formulário
         this.frmAddGrade.addEventListener('submit', event => {
             event.preventDefault();
 
-            try {
+            try { //tenta criar uma entidade que esteja separada por "#"
                 const entities = this.txtGrade.value.split('#') //ano#UC#nota
+                    //se o tamanho da entidade for diferente de 3 dará Error como "ficheiro não suportado" 
+                    //(pois deve ter cada parametro separado por #)
                 if (entities.length !== 3) {
                     throw Error('Formato não suportado!')
                 }
                 this.gradeController.addGrade(entities[0], entities[1], entities[2])
-                this.displayMessage('Nota registada com sucesso!');
+                this.displayMessage('Nota registada com sucesso!')
+                    //Adiciona a informação na tabela
                 this.renderCatalog(this.gradeController.getGrades())
-
 
             } catch (error) {
                 this.displayMessage(error)
             }
         })
+    }
+
+    bindRemoveEvent() {
+        for (const btnRemove of document.getElementsByClassName('remove')) {
+            btnRemove.addEventListener('click', event => {
+                this.gradeController.removeGrade(event.target.id)
+                this.renderCatalog(this.gradeController.getGrades())
+            })
+        }
     }
 
     bindStatisticsEvent() {
@@ -55,41 +64,31 @@ export default class GradeView {
         })
     }
 
-    bindRemoveEvent() {
-        for (const btnRemove of document.getElementsByClassName('remove')) {
-            btnRemove.addEventListener('click', event => {
-                this.gradeController.removeGrade(event.target.id)
-                this.renderCatalog(this.gradeController.getGrades())
-            })
-        }
-    }
 
     renderCatalog(grades = []) {
         let result = ''
-
         if (grades.length != 0) {
             result = `
-                <table class="table"><tr><th>ANO</th><th>DISCIPLINA</th><th>NOTA</th><th>AÇÕES</th></tr>
+                <table><tr><th>ANO</th><th>DISCIPLINA</th><th>NOTA</th><th>AÇÕES</th></tr>
             `
         } else {
-            result = `<p>Sem notas registadas!</p>`
+            result = `<p>sem notas registadas!</p>`
         }
 
         for (const grade of grades) {
-            if (grade.nota < 10) {
+            if (grade.score < 10) {
                 result += `<tr style='background-color: red'>`
             } else {
                 result += `<tr>`
             }
-            result += `
-                <td>${grade.ano}</td>
-                <td>${grade.disciplina}</td>
-                <td>${grade.nota}</td>
-                <td><button id='${grade.disciplina}' class='remove'>REMOVE</button></td>
-            </tr>
+            result += `                
+                    <td>${grade.year}</td>
+                    <td>${grade.course}</td>
+                    <td>${grade.score}</td>
+                    <td><button id='${grade.course}' class='remove'>REMOVE</button></td>
+                </tr>
             `
         }
-
         result += `</table>`
         this.pCatalog.innerHTML = result
         this.bindRemoveEvent()

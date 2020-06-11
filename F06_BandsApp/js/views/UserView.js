@@ -28,7 +28,7 @@ export default class UserView {
 
         this.bindAddLogoutEvent();
 
-        this.checkLoginStatus();
+        this.checkLoginStatus();     
     }
 
     bindAddRegisterForm() {
@@ -36,12 +36,12 @@ export default class UserView {
             event.preventDefault();
 
             try {
-                if (this.registerPassword.value !== this.registerPassword2.value) {
-                    throw Error('Password and Confirm Password are not equal');
+                if (this.registerPassword.value !==this.registerPassword2.value) {
+                    throw Error('Password and Confirm Password are not equal');   
                 }
                 this.userController.createUser(this.registerUsername.value, this.registerPassword.value);
                 this.displayRegisterMessage('User registered with success!', 'success');
-            } catch (e) {
+            } catch(e) {
                 this.displayRegisterMessage(e, 'danger');
             }
         });
@@ -49,7 +49,7 @@ export default class UserView {
 
     bindAddLoginForm() {
         this.loginForm.addEventListener('submit', event => {
-            event.preventDefault();
+            event.preventDefault(); 
 
             try {
                 this.userController.loginUser(this.loginUsername.value, this.loginPassword.value);
@@ -57,17 +57,17 @@ export default class UserView {
 
                 // Wait 1 second before reloading, so the user can see the login success message
                 setTimeout(() => {
-                        this.updateButtons('login');
-                        location.reload()
-                    },
-                    1000);
+                    this.updateButtons('login');
+                    location.reload()
+                },
+                1000);
 
-            } catch (e) {
+            } catch(e) {
                 this.displayLoginMessage(e, 'danger');
             }
         });
     }
-
+    
     bindAddLogoutEvent() {
         this.logoutButton.addEventListener('click', event => {
             this.userController.logoutUser();
@@ -95,7 +95,7 @@ export default class UserView {
     }
 
     updateButtons(event) {
-        switch (event) {
+        switch(event) {
             case 'login':
                 this.loginButton.style.visibility = 'hidden'
                 this.registerButton.style.visibility = 'hidden'

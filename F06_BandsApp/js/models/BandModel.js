@@ -1,14 +1,12 @@
 export default class BandModel {
     constructor() {
-        //Verificar se já existe ou não uma chave na local storage
         this.bands = localStorage.bands ? JSON.parse(localStorage.bands) : [];
     }
 
     getAll() {
-        //quem chamar a função vai receber todas as bandas atuais
         return this.bands;
     }
-
+    
     create(name, genre, photo, description, video) {
         const band = {
             id: this.bands.length > 0 ? this.bands[this.bands.length - 1].id + 1 : 1,
@@ -27,13 +25,19 @@ export default class BandModel {
         this._persist();
     }
 
+    setCurrentBand(id) {
+        localStorage.setItem("band", id); 
+    }
+
+    getCurrentBand() {
+        return this.bands.find(band => band.id === +localStorage.band)
+    }
 
     remove(name) {
         this.bands = this.bands.filter(band => band.name != name)
         this._persist()
     }
-
-
+   
     _persist() {
         localStorage.setItem('bands', JSON.stringify(this.bands));
     }

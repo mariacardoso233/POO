@@ -6,9 +6,10 @@ export default class GradeController {
         this.gradeModel = new GradeModel()
     }
 
-    addGrade(ano, disciplina, nota) {
-        if (!this.gradeModel.getAll().some(grade => grade.disciplina === disciplina)) {
-            this.gradeModel.create(ano, disciplina, nota)
+    addGrade(year, course, score) {
+        //Se não houver alguma nota na disciplina ele cria a disciplina
+        if (!this.gradeModel.getAll().some(grade => grade.course === course)) {
+            this.gradeModel.create(year, course, score) //criação da nota
         } else {
             throw Error('Disciplina já tem uma nota associada!')
         }
@@ -18,34 +19,31 @@ export default class GradeController {
         return this.gradeModel.getAll()
     }
 
-    removeGrade(disciplina) {
-        this.gradeModel.remove(disciplina)
+    removeGrade(course) {
+        this.gradeModel.remove(course)
     }
 
     //modal com a média global.
-    getAverageGrade() {
+    getAverageGrades() {
         let sum = 0
-
-        const grades = this.getModel.getAll() //Buscar todas as notas para a variavél criada
+        const grades = this.gradeModel.getAll() //Buscar todas as notas para a variavél criada
         for (const grade of grades) {
-            sum += +grade.nota //sumatório de todas as notas
+            sum += +grade.score //sumatório de todas as notas
         }
         return sum / grades.length //calculo da média global
     }
 
     //modal com a média por ano
-    getAverageGradeYear() {
+    getAverageGradeYear(year) {
         let sum = 0,
-            countGradeYear = 0
-
+            countGradesYear = 0
         const grades = this.gradeModel.getAll()
         for (const grade of grades) {
-            if (grade.ano == ano) {
-                sum += +grade.nota
-                countGradeYear++
+            if (grade.year == year) {
+                sum += +grade.score
+                countGradesYear++
             }
         }
-        return sum / countGradeYear
+        return sum / countGradesYear
     }
-
 }

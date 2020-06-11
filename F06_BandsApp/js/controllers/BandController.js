@@ -5,43 +5,64 @@ export default class BandController {
         this.bandModel = new BandModel()
     }
 
+    addBand(name, genre, photo, description, video) {
+        if (!this.bandModel.getAll().some(band => band.name === name)) {
+            this.bandModel.create(
+                name,
+                genre,
+                photo,
+                description,
+                video
+            );
+        } else {
+            throw Error(`Band with name "${name}" already exists!`);
+        }
+    }
+
     removeBand(name) {
         this.bandModel.remove(name)
     }
 
-    getBands(filterName = '', filterGenre = '', isSorted = false) {
+    setCurrentBand(id) {
+        this.bandModel.setCurrentBand(id)
+    }
+
+    getCurrentBand() {
+        return this.bandModel.getCurrentBand()
+    }
+
+
+    getBands(filterName='', filterGenre='', isSorted=false) {
 
         if (isSorted) {
             this.bandModel.sort()
         }
 
         const bands = this.bandModel.getAll()
-
-        if (filterName === '' && filterGenre === '') {
+        
+        if (filterName==='' && filterGenre==='') {
             return bands
         }
 
         let filteredBands = []
 
         for (const band of bands) {
-            let filterBandName = false,
-                filterBandGenre = false
+            let filterBandName = false, filterBandGenre = false
 
-            if ((band.name.includes(filterName) && filterName != '') || filterName === '') {
+            if((band.name.includes(filterName) && filterName!='') || filterName==='') {
                 filterBandName = true
             }
 
-            if ((band.genre === filterGenre && filterGenre != '') || filterGenre === '') {
+            if((band.genre===filterGenre && filterGenre!='') || filterGenre==='') {
                 filterBandGenre = true
             }
 
-            //alimentar filteredBands
-            if (filterBandName && filterBandGenre) {
+            // Alimentar filteredBands
+            if(filterBandName && filterBandGenre) {
                 filteredBands.push(band)
             }
         }
 
         return filteredBands
     }
-
 }
