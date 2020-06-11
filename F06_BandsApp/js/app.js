@@ -46,52 +46,66 @@ class App {
     }
 
     _importDataFixtures() {
-        const bands = [
-            {
+        const bands = [{
                 id: 1,
-                name: 'Muse',
-                genre: 'Pop-Rock',
-                photo: 'http://www.planckmachine.com/wp-content/uploads/2016/09/hysteria-muse-meaning-song.jpg',
-                description: 'The best band ever',
-                video: 'https://www.youtube.com/watch?v=AR6A3dap6MI'  
+                name: 'iKON',
+                genre: 'Hip-Hop',
+                photo: 'https://c-sf.smule.com/sf/s77/arr/7d/ea/de26a1fd-9574-452a-9cd9-38e3cd04d9a3_256.jpg',
+                description: 'Genre: K-pop, Hip-hop // Debut: 2015// Label: YG Entertainment // Members: B.I, Jinhwan, Yunhyeong, Bobby, Donghyuk, Junhoe, Chanwoo'
             },
             {
                 id: 2,
-                name: 'RadioHead',
-                genre: 'Pop-Rock',
-                photo: 'https://ep01.epimg.net/elpais/imagenes/2017/05/17/icon/1495017818_647155_1495125183_noticia_normal.jpg',
-                description: 'The best band ever',
-                video: 'https://www.youtube.com/watch?v=fHiGbolFFGw'
+                name: 'BTS',
+                genre: 'K-Pop',
+                photo: 'https://pbs.twimg.com/profile_images/828729925217746945/AgMZdPiL.jpg',
+                description: 'Debut: 2013 // Label: Big Hit Entertainment // Members: Jin, Suga, J-Hope, RM, Jimin, V, Jungkook'
             },
             {
                 id: 3,
-                name: 'James',
-                genre: 'Pop-Rock',
-                photo: 'http://ksassets.timeincuk.net/wp/uploads/sites/55/2013/01/2012JamesBandPress181212-2.jpg',
-                description: 'The best band ever',
-                video: 'https://www.youtube.com/watch?v=BlucfrfxAUc'
+                name: 'GOT7',
+                genre: 'K-pop',
+                photo: 'https://cdn130.picsart.com/321294967494201.jpg?type=webp&to=crop&r=256',
+                description: 'Debut: 2014 // Label: JYP Entertainment // Members: Mark, JB, Jackson, Jinyoung, Youngjae, BamBam, Yugyeom'
             },
             {
                 id: 4,
-                name: 'Metallica',
-                genre: 'Metal',
-                photo: 'https://images.impresa.pt/blitz/2016-08-19-metallica.jpg/original/mw-860',
-                description: 'The best band ever',
-                video: 'https://www.youtube.com/watch?v=pZTJBViOoik' 
-            }
+                name: 'NCT 127',
+                genre: 'Hip-Hop',
+                photo: 'https://c-sf.smule.com/rs-s95/arr/c9/6e/c06d079f-d19d-406d-9cd9-9001382993a7.jpg',
+                description: 'Genre: k-pop, hip-hop // Debut: 2016 // Label: SM // Members: Taeil, Johnny, Taeyong, Yuta, Doyoung, Jaehyun, Winwin, Jungwoo, Mark, Haechan'
+            },
+            {
+                id: 5,
+                name: 'PLT',
+                genre: 'R&B',
+                photo: 'https://c-sf.smule.com/rs-s79/arr/a6/22/336af388-048b-4a97-bb4d-31a078191e48.jpg',
+                description: 'Genre: r&b, hip-hop // Debut: 2018 // Label: Planetarium Record // Mambers: June, Moti, Jung Jinwoo, Gaho, Villain and Kei.G'
+            },
+            {
+                id: 6,
+                name: 'ATEEZ',
+                genre: 'K-pop',
+                photo: 'https://pm1.narvii.com/7273/37d692975f291bce2f71244746ec61c61413cce8r1-634-634v2_00.jpg',
+                description: 'Genre: K-pop, J-pop // Debut: 2018 // Label: KQ Entertainment // Mambers: Hongjoong, Seonghwa, Yunho, Yeosang, San, Mingi, Wooyoung, and Jongho '
+            },
+            {
+                id: 7,
+                name: 'BIGBANG',
+                genre: 'K-pop',
+                photo: 'https://kprofiles.com/wp-content/uploads/BigBang.jpg',
+                description: 'Genre: K-pop, J-pop, hip-hop, dance electronic, R&B // Debut: 2006 // Label: YG Entertainment // Mambers: T.O.P, Taeyang, G-Dragon, Daesung, Seungri (ex-member)'
+            },
         ];
 
-        const users = [
-            {
-                id: 1,
-                username: 'user',
-                password: 'user'
-            }
-        ];
+        const users = [{
+            id: 1,
+            username: 'user',
+            password: 'user'
+        }];
 
         // Load the fixtures in case there is no data in the local storage 
         if (!localStorage.bands) {
-            localStorage.setItem('bands', JSON.stringify(bands));    
+            localStorage.setItem('bands', JSON.stringify(bands));
         }
         if (!localStorage.users) {
             localStorage.setItem('users', JSON.stringify(users));
