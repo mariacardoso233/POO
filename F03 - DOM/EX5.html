@@ -1,41 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ex05</title>
+    <title>ex5</title>
 </head>
+
 <body>
 
-    <form>
-        <label for="txtGameName">Nome do jogo:</label>
+    <!-- Alinea A) -->
+    <form action="ex05.html">
+        <label for="txtGameName">Nome</label>
         <input name="txtGameName" id="txtGameName" type="text" required>
-        <br><br>
+        <br>
 
-        <label for="txtGameYear">Ano do jogo</label>
-        <input name="txtGameYear" id="txtGameYear" type="text" required>
-        <br><br>
-        
-        <label for="txtGameGenre">Género do jogo</label>
-        <select name="txtGameGenre" id="txtGameGenre">
+        <label for="txtGameYear">Ano</label>
+        <input name="txtGameYear" id="txtGameYear" type="number" required>
+        <br>
+
+        <label for="sltGameGenre">Género</label>
+        <select name="sltGameGenre" id="sltGameGenre">
             <option value="acao">Ação</option>
             <option value="aventura">Aventura</option>
-            <option value="desporto">Desporto</option>
             <option value="estrategia">Estratégia</option>
+            <option value="desporto">Desporto</option>
             <option value="simulacao">Simulação</option>
         </select>
-        <br><br>
-        
-        <label for="urlGameCover">Capa do jogo</label>
-        <input id="urlGameCover" type="urlGameCover" required>
-        <br><br>
+        <br>
 
-        <input type="submit" value="Adicionar">
-        <input type="reset" value="Limpar">
-        <br><br><br>
+        <label for="urlGameCover"></label>
+        <input name="urlGameCover" id="urlGameCover" type="url">
+        <br>
+
+        <input type="submit" value="Adicionar" />
+        <input type="reset" value="Limpar" />
     </form>
 
+    <hr />
+
+    <!-- Alinea B) -->
     <table>
         <tr>
             <th>Nome</th>
@@ -46,8 +50,7 @@
         </tr>
     </table>
 
-
-    <script src="/EX5.js"></script>
-    
+    <script src="EX5.js"></script>
 </body>
+
 </html>
